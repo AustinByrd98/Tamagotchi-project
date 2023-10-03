@@ -1,0 +1,18 @@
+body {
+    min-height: calc(100vh - 16px);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-image: url(assets/fairytale-forest-7759927_1280.jpg);
+}
+
+#h1 {
+    font-family: 'Poiret One', cursive;
+    font-family: 'Satisfy', cursive;
+}
+
+.stats {
+    font-family: 'Fuggles', cursive;
+    font-family: 'Poiret One', cursive;
+    font-family: 'Satisfy', cursive;
+}
