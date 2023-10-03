@@ -7,20 +7,19 @@ class Tamagotchi {
         this.hunger = 20
         this.tired = 20
         // i want to make this.mood reference an array of moods and display that instead of a number
-        this.mood = 4
+        this.mood = 0
         // only 6 items in this array
-        this.moodArray = [ "dead","you should check on your Tamagotchi!!","happy", "ok", "i'm fine", "mad" ]
+        this.moodArray = ["i'm fine", "ok","happy", "mad", "dead","you should check on your Tamagotchi!!"]
         this.health = 100
+        //empty string for now till i know what i want
+        this.evoltion=0
+        this.evoltionPhases=["egg","baby","adult"]
         this.gameStart=false
     }
-    //need a timer function that runs at start up and increaments age, hunger,tired
-
-
+    
     //need a math function that decreaes heath baised on abouve factors 
     eat() {
-        console.log("kuh;uh")
         this.hunger++
-        console.log(this.hunger)
         if (this.health < 100) {
             this.health += 5
             this.hunger++
@@ -32,7 +31,7 @@ class Tamagotchi {
         // this.mood can not drop below 0 or go above 7
         console.log("play")
         // this.mood+=1
-        if(this.mood===2) {
+        if(this.mood === 2) {
             this.mood = 5
         } else if (this.mood <= 5 && this.mood > 0) {
             this.mood--
@@ -46,11 +45,18 @@ class Tamagotchi {
             this.health += 10
         }
         display()
-        // i will need a display method here
+       
+    }
+    evolve(){
+        this.evoltion++
     }
 }
-const textBox= document.getElementById("text-box")
-console.log(textBox)
+if(austin.age>2){
+    // evolve pet 
+
+}
+// const textBox= document.getElementById("text-box")
+// console.log(textBox)
 // const name1= document.createElement("h1")
 // document.body.appendChild(name1)
 // name1.appendChild(textBox)
@@ -75,12 +81,15 @@ const checkWinOrLose=()=>{
         alert("game over")
         clearInterval()
         clearInterval()
+        return
     }
     if(austin.age>=7){
         alert("you win")
         clearInterval()
         clearInterval()
+        return
     }
+    
 }
 const interval = () => {
     austin.health -= 5
@@ -91,7 +100,6 @@ const interval = () => {
 }
 const intervalAge = () => {
     austin.age++
-    console.log(austin.age)
     display()
     
 }
@@ -100,9 +108,6 @@ const startButton = () => {
     setInterval(interval, 3000)
     setInterval(intervalAge, 10000)
     austin.gameStart=true
-    
-    console.log(austin.age)
-   
 }
 
 const gameStart=document.getElementById("start")
