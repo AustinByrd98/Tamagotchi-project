@@ -49,6 +49,11 @@ class Tamagotchi {
         // i will need a display method here
     }
 }
+const textBox= document.getElementById("text-box")
+console.log(textBox)
+// const name1= document.createElement("h1")
+// document.body.appendChild(name1)
+// name1.appendChild(textBox)
 const austin = new Tamagotchi()
 
 const display=()=>{
