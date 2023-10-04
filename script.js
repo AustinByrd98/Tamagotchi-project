@@ -3,7 +3,7 @@
 class Tamagotchi {
     constructor() {
         this.name = ""
-        this.age = 0
+        this.age = 6
         this.hunger = 20
         this.tired = 20
         // i want to make this.mood reference an array of moods and display that instead of a number
@@ -87,16 +87,19 @@ const display=()=>{
 display()
 const checkWinOrLose=()=>{
     if (austin.health<=0){
-        alert("game over")
-        clearInterval()
-        clearInterval()
-        clearInterval()
+        const win = document.getElementById("win")
+        win.innerText= "you won the game"
+        clearInterval(interavlId)
+        clearInterval(intervalID)
+        clearInterval(iNtervalId)
         return
     }
     if(austin.age>=7){
-        alert("you win")
-        clearInterval()
-        clearInterval()
+        const lose = document.getElementById("lose")
+        lose.innerText= "Your tomagotchi has died"
+        clearInterval(interavlId)
+        clearInterval(intervalID)
+        clearInterval(iNtervalId)
         return
     }
     
@@ -115,9 +118,9 @@ const intervalAge = () => {
 }
 
 const startButton = () => {
-    setInterval(interval, 3000)
-    setInterval(intervalAge, 10000)
-    setInterval(()=>{austin.evolve()}, 10000)
+   interavlId= setInterval(interval, 3000)
+    intervalID=setInterval(intervalAge, 10000)
+    iNtervalId=setInterval(()=>{austin.evolve()}, 10000)
     austin.gameStart=true
 }
 austin.evolve()
