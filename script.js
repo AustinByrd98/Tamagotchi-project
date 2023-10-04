@@ -13,7 +13,7 @@ class Tamagotchi {
         this.health = 100
         //empty string for now till i know what i want
         this.evoltion=0
-        this.evoltionPhases=["egg","baby","adult"]
+        this.evoltionPhases=["egg","baby","adult","old man"]
         this.gameStart=false
     }
     
@@ -48,13 +48,20 @@ class Tamagotchi {
        
     }
     evolve(){
-        this.evoltion++
+        if(this.age===1){
+            this.evoltion++
+        }
+        if (this.age===3){
+            this.evoltion++
+        }
+        if (this.age===5){
+            this.evoltion++
+        }
+        
+        display()
     }
 }
-if(austin.age>2){
-    // evolve pet 
-
-}
+// 
 // const textBox= document.getElementById("text-box")
 // console.log(textBox)
 // const name1= document.createElement("h1")
@@ -68,17 +75,20 @@ const display=()=>{
     const tired=document.getElementById("tired")
     const hunger= document.getElementById("hunger")
     const age= document.getElementById("age")
+    const evolve=document.getElementById("evolution")
 
     health.innerText=`health ${austin.health}`
     mood.innerText=`mood ${austin.moodArray[austin.mood]}`
     tired.innerText= `tired ${austin.tired}`
     hunger.innerText= `hunger ${austin.hunger}`
     age.innerText= `age ${austin.age}`
+    evolve.innerText=`evolution ${austin.evoltionPhases[austin.evoltion]}`
 }
 display()
 const checkWinOrLose=()=>{
     if (austin.health<=0){
         alert("game over")
+        clearInterval()
         clearInterval()
         clearInterval()
         return
@@ -107,8 +117,10 @@ const intervalAge = () => {
 const startButton = () => {
     setInterval(interval, 3000)
     setInterval(intervalAge, 10000)
+    setInterval(()=>{austin.evolve()}, 10000)
     austin.gameStart=true
 }
+austin.evolve()
 
 const gameStart=document.getElementById("start")
 gameStart.addEventListener("click",startButton)
