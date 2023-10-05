@@ -3,13 +3,13 @@
 class Tamagotchi {
     constructor() {
         this.name = ""
-        this.age = 6
-        this.hunger = 20
-        this.tired = 20
+        this.age = 0
+        this.hunger = 10
+        this.tired = 10
         // i want to make this.mood reference an array of moods and display that instead of a number
-        this.mood = 0
+        this.mood = 5
         // only 6 items in this array
-        this.moodArray = ["i'm fine", "ok","happy", "mad", "dead","you should check on your Tamagotchi!!"]
+        this.moodArray = [ "dead", "you should check on your Tamagotchi!!", "mad","i'm fine", "ok","happy"]
         this.health = 100
         //empty string for now till i know what i want
         this.evoltion=0
@@ -31,10 +31,10 @@ class Tamagotchi {
         // this.mood can not drop below 0 or go above 7
         console.log("play")
         // this.mood+=1
-        if(this.mood === 2) {
-            this.mood = 5
+        if(this.mood === 5) {
+            this.mood = 2
         } else if (this.mood <= 5 && this.mood > 0) {
-            this.mood--
+            this.mood++
         }
         
         display()
@@ -88,26 +88,43 @@ display()
 const checkWinOrLose=()=>{
     if (austin.health<=0){
         const win = document.getElementById("win")
-        win.innerText= "you won the game"
+        win.innerText= "Your tomagotchi has died"
         clearInterval(interavlId)
         clearInterval(intervalID)
         clearInterval(iNtervalId)
-        return
+        
     }
     if(austin.age>=7){
         const lose = document.getElementById("lose")
-        lose.innerText= "Your tomagotchi has died"
+        lose.innerText= "you won the game"
         clearInterval(interavlId)
         clearInterval(intervalID)
         clearInterval(iNtervalId)
-        return
+        
     }
     
 }
 const interval = () => {
     austin.health -= 5
+    austin.mood--
     austin.hunger--
     austin.tired--
+    if (austin.tired<5){
+        austin.health-=4
+    }
+    if (austin.hunger<5){
+        austin.health-=5
+    }
+    if (austin.hunger<=0){
+        austin.health-=100
+    }
+    if (austin.hunger<=0){
+        austin.health-=100
+    }
+    if(austin.mood<=0){
+        austin.health-=100
+    }
+    
     display()
     checkWinOrLose()
 }
@@ -118,12 +135,12 @@ const intervalAge = () => {
 }
 
 const startButton = () => {
-   interavlId= setInterval(interval, 3000)
+   interavlId= setInterval(interval, 5000)
     intervalID=setInterval(intervalAge, 10000)
     iNtervalId=setInterval(()=>{austin.evolve()}, 10000)
     austin.gameStart=true
 }
-austin.evolve()
+
 
 const gameStart=document.getElementById("start")
 gameStart.addEventListener("click",startButton)
