@@ -45,7 +45,7 @@ class Tamagotchi {
     }
     sleep() {
 
-        if (this.tired <= 10 && this.health<100) {
+        if (this.tired <= 10 && this.health < 100) {
             this.health += 10
             this.tired++
             console.log(this.tired)
@@ -63,7 +63,7 @@ class Tamagotchi {
             babyClasses.toggle("hidden")
 
         }
-        if (this.age === 3 ) {
+        if (this.age === 3) {
             this.evoltion++
 
             babyClasses.toggle("hidden")
