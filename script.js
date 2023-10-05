@@ -1,30 +1,27 @@
-
-
+const name = prompt("Welcome to my Tamagotchi game to start name your pet")
+const nameTag = document.getElementById("name")
+nameTag.innerText=` name: ${name}`
 class Tamagotchi {
     constructor() {
-        this.name = ""
         this.age = 0
         this.hunger = 10
         this.tired = 10
-        // i want to make this.mood reference an array of moods and display that instead of a number
         this.mood = 5
         // only 6 items in this array
         this.moodArray = [ "dead", "you should check on your Tamagotchi!!", "mad","i'm fine", "ok","happy"]
         this.health = 100
-        //empty string for now till i know what i want
         this.evoltion=0
         this.evoltionPhases=["egg","baby","adult","old man"]
         this.gameStart=false
     }
     
-    //need a math function that decreaes heath baised on abouve factors 
+    
     eat() {
-        this.hunger++
-        if (this.health < 100) {
+        
+        if (this.hunger <=9) {
             this.health += 5
             this.hunger++
         }
-        console.log(austin.health)
         display()
     }
     play() {
@@ -40,9 +37,11 @@ class Tamagotchi {
         display()
     }
     sleep() {
-        this.tired++
-        if (this.health < 100) {
-            this.health += 10
+       
+        if (this.tired<=10) {
+            this.health += 10 
+            this.tired++
+            console.log(this.tired)
         }
         display()
        
@@ -50,23 +49,31 @@ class Tamagotchi {
     evolve(){
         if(this.age===1){
             this.evoltion++
+            console.log("is this working")
+            const egg= document.getElementById("egg")
+            egg.remove()
+            const baby = document.getElementById("baby")
+            const classes= baby.classList
+            classes.toggle(".hidden")
+
         }
         if (this.age===3){
             this.evoltion++
+            const egg = document.getElementById("adult")
+            const classes= egg.classList
+            classes.toggle(".hidden")
         }
         if (this.age===5){
             this.evoltion++
+            const egg = document.getElementById("oldMan")
+            const classes= egg.classList
+            classes.toggle(".hidden")
         }
         
         display()
     }
 }
-// 
-// const textBox= document.getElementById("text-box")
-// console.log(textBox)
-// const name1= document.createElement("h1")
-// document.body.appendChild(name1)
-// name1.appendChild(textBox)
+
 const austin = new Tamagotchi()
 
 const display=()=>{
@@ -77,12 +84,12 @@ const display=()=>{
     const age= document.getElementById("age")
     const evolve=document.getElementById("evolution")
 
-    health.innerText=`health ${austin.health}`
-    mood.innerText=`mood ${austin.moodArray[austin.mood]}`
-    tired.innerText= `tired ${austin.tired}`
-    hunger.innerText= `hunger ${austin.hunger}`
-    age.innerText= `age ${austin.age}`
-    evolve.innerText=`evolution ${austin.evoltionPhases[austin.evoltion]}`
+    health.innerText=`health: ${austin.health}`
+    mood.innerText=`mood: ${austin.moodArray[austin.mood]}`
+    tired.innerText= `tired: ${austin.tired}`
+    hunger.innerText= `hunger: ${austin.hunger}`
+    age.innerText= `age: ${austin.age}`
+    evolve.innerText=`evolution: ${austin.evoltionPhases[austin.evoltion]}`
 }
 display()
 const checkWinOrLose=()=>{
@@ -135,7 +142,7 @@ const intervalAge = () => {
 }
 
 const startButton = () => {
-   interavlId= setInterval(interval, 5000)
+   interavlId= setInterval(interval, 7000)
     intervalID=setInterval(intervalAge, 10000)
     iNtervalId=setInterval(()=>{austin.evolve()}, 10000)
     austin.gameStart=true

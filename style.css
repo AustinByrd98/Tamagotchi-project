@@ -27,26 +27,74 @@ body {
     font-family: 'Satisfy', cursive;
 }
 .slideAnitimation{
-    animation: slide 4s timing-function delay iteration-count direction fill-mode;
+   animation-name: slide;
+   animation-duration: 4s;
+
+}
+.pluseAnitimation{
+    animation-name: pluse;
+    animation-duration: 4s;
+}
+.babyWalkAnimation{
+    animation-name: babyWalk;
+    animation-duration: 10s;
 }
 .hidden{
     opacity: 0;
 }
-#egg{
+img{
+    height: 12em;
+}
+#pic{
     height: 12em; 
+}
+@keyframes pluse{
+    0%{
+        opacity: 1;
+        transform: scale(1);
+    }
+    50%{
+        opacity: .5;
+        transform: scale(1.25);
+    }
+    100%{
+        opacity: 1;
+        transform: scale(1);
+    }
 }
 @keyframes slide {
     from{
-        margin-left: 100%;
-        width: 300%
+        margin-left: 50%;
+        width:192px 
     }
     to{
-        margin-left: 0%;
-        width: 100%;
+        margin-left: 100%;
+        width: 192px;
 
     }
 
 }
-#cat{
-    size: 20em;
+
+@keyframes babyWalk{
+    0%{
+        transform: rotate(0);
+        margin-right: 10%;
+    }
+    25%{
+        transform: rotate(15deg);
+        margin-left: 100px;
+    }
+    50%{
+        transform: rotate(0);
+        margin-right: 200px;
+    }
+    75%{
+        transform: rotate(15deg);
+        margin-left: 50%;
+    }
+    100%{
+        transform: rotate(0);
+        margin-right: 200px ;
+    }
+
 }
