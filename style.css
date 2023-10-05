@@ -5,16 +5,18 @@ body {
     align-items: center;
     flex-direction: column;
     background-image: url(assets/fairytale-forest-7759927_1280.jpg);
+    background-size: cover;
 }
-.full-body{
+
+.full-body {
     display: flex;
     justify-content: space-between;
-    
+
 }
 
 #h1 {
     color: rgb(237, 19, 19);
-    font-size:5em;
+    font-size: 5em;
     font-family: 'Poiret One', cursive;
     font-family: 'Satisfy', cursive;
 }
@@ -26,48 +28,61 @@ body {
     font-family: 'Poiret One', cursive;
     font-family: 'Satisfy', cursive;
 }
-.slideAnitimation{
-   animation-name: slide;
-   animation-duration: 4s;
+
+.slideAnitimation {
+    animation-name: slide;
+    animation-duration: 4s;
+
 
 }
-.pluseAnitimation{
+
+.pluseAnitimation {
     animation-name: pluse;
     animation-duration: 4s;
 }
-.babyWalkAnimation{
+
+.babyWalkAnimation {
     animation-name: babyWalk;
     animation-duration: 10s;
+    animation-iteration-count: infinite;
 }
-.hidden{
+
+.hidden {
     opacity: 0;
 }
-img{
+
+img {
     height: 12em;
 }
-#pic{
-    height: 12em; 
+
+#pic {
+    height: 12em;
 }
-@keyframes pluse{
-    0%{
+
+@keyframes pluse {
+    0% {
         opacity: 1;
         transform: scale(1);
     }
-    50%{
+
+    50% {
         opacity: .5;
         transform: scale(1.25);
     }
-    100%{
+
+    100% {
         opacity: 1;
         transform: scale(1);
     }
 }
+
 @keyframes slide {
-    from{
+    from {
         margin-left: 50%;
-        width:192px 
+        width: 192px
     }
-    to{
+
+    to {
         margin-left: 100%;
         width: 192px;
 
@@ -75,26 +90,30 @@ img{
 
 }
 
-@keyframes babyWalk{
-    0%{
+@keyframes babyWalk {
+    0% {
         transform: rotate(0);
         margin-right: 10%;
     }
-    25%{
+
+    25% {
         transform: rotate(15deg);
         margin-left: 100px;
     }
-    50%{
+
+    50% {
         transform: rotate(0);
         margin-right: 200px;
     }
-    75%{
+
+    75% {
         transform: rotate(15deg);
         margin-left: 50%;
     }
-    100%{
+
+    100% {
         transform: rotate(0);
-        margin-right: 200px ;
+        margin-right: 200px;
     }
 
 }
